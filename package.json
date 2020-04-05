@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "run": "ng serve -o",
+    "githubbuild": "ng build --prod --base-href https://abdulnijamudeen.github.io/argon-angular8/",
+    "githubdeploy": "ngh -no-silent --dir dist/argon-angular8"
   },
   "private": true,
   "dependencies": {

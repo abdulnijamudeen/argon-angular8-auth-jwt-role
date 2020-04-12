@@ -32,7 +32,14 @@ export class AuthenticationService {
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    return this.http.post<any>(`${environment.apiUrl}/api/auth/logout`, { })
+    .pipe(map(res => {
+      if (res && res.message) {
+        console.log(res);
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+      }
+      return res;
+    }));
   }
 }

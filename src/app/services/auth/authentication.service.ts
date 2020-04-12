@@ -31,15 +31,25 @@ export class AuthenticationService {
       }));
   }
 
+  register(username: string, password: string, role: string, name: string) {
+    return this.http.post<any>(`${environment.apiUrl}/api/auth/sign-up`, { username, password, role, name })
+      .pipe(map(res => {
+        if (res && res.message) {
+          console.log(res);
+        }
+        return res;
+      }));
+  }
+
   logout() {
-    return this.http.post<any>(`${environment.apiUrl}/api/auth/logout`, { })
-    .pipe(map(res => {
-      if (res && res.message) {
-        console.log(res);
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
-      }
-      return res;
-    }));
+    return this.http.post<any>(`${environment.apiUrl}/api/auth/logout`, {})
+      .pipe(map(res => {
+        if (res && res.message) {
+          console.log(res);
+          localStorage.removeItem('currentUser');
+          this.currentUserSubject.next(null);
+        }
+        return res;
+      }));
   }
 }

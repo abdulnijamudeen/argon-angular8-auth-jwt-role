@@ -35,7 +35,7 @@ export class AuthenticationService {
     return this.http.post<any>(`${environment.apiUrl}/api/auth/sign-up`, { username, password, role, name })
       .pipe(map(res => {
         if (res && res.message) {
-          console.log(res);
+          // console.log(res);
         }
         return res;
       }));
@@ -45,7 +45,7 @@ export class AuthenticationService {
     return this.http.post<any>(`${environment.apiUrl}/api/auth/logout`, {})
       .pipe(map(res => {
         if (res && res.message) {
-          console.log(res);
+          // console.log(res);
           localStorage.removeItem('currentUser');
           this.currentUserSubject.next(null);
         }

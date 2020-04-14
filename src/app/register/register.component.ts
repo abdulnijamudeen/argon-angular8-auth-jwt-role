@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    console.log(this.registerForm.value);
+
     this.authenticationService.register(
       this.registerForm.controls.username.value,
       this.registerForm.controls.password.value,

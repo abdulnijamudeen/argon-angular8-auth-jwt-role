@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) {
     this.currentUser = this.authenticationService.currentUserValue;
-    console.log(this.currentUser);
   }
 
   ngOnInit() {
